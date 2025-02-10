@@ -22,7 +22,6 @@ bl_info = {
     "category": "Object"
 }
 
-
 # 頂点を伸ばすオペレーター
 class MYADDON_OT_stretch_vertex(bpy.types.Operator):
     bl_idname = "myaddon.myaddon_ot_strech_vertex"
@@ -363,11 +362,6 @@ class TOPBAR_MT_my_menu(bpy.types.Menu):
 
         # トップバーのエディターメニューに項目を追加
         self.layout.operator(MYADDON_OT_export_scene.bl_idname, text=MYADDON_OT_export_scene.bl_label)
-
-
-
-
-
 
     def subMenu(self, context):
         # ID指定でサブメニューを追加
