@@ -83,7 +83,10 @@ class MYADDON_OT_add_collider(bpy.types.Operator):
 from .my_disabled import MYADDON_OT_add_disabled
 
 # スポーンシンボルの追加のインポート
+from .my_spawn import MYADDON_OT_add_spawn_symbole
 from .my_spawn import MYADDON_OT_add_spawn
+from .my_spawn import MYADDON_OT_add_player_spawn
+from .my_spawn import MYADDON_OT_add_enemy_spawn
 
 class OBJECT_PT_file_name(bpy.types.Panel):
     """オブジェクトのファイルネームパネル"""
@@ -144,7 +147,10 @@ classes = (
     OBJECT_PT_collider,
     MYADDON_OT_add_disabled,
     OBJECT_PT_disabled,
-    MYADDON_OT_add_spawn
+    MYADDON_OT_add_spawn_symbole,
+    MYADDON_OT_add_spawn,
+    MYADDON_OT_add_player_spawn,
+    MYADDON_OT_add_enemy_spawn
 )
 
 
