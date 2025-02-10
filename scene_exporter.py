@@ -50,7 +50,6 @@ class MYADDON_OT_export_scene(bpy.types.Operator, bpy_extras.io_utils.ExportHelp
         self.write_and_print(file, indent + "R %f, %f, %f" % (rot.x, rot.y, rot.z))
         self.write_and_print(file, indent + "S %f, %f, %f" % (scale.x, scale.y, scale.z))
 
-
         # カスタムプロパティ 'file_name'
         if "file_name" in object:
             self.write_and_print(file, indent + "N %s" % object["file_name"])
@@ -100,6 +99,9 @@ class MYADDON_OT_export_scene(bpy.types.Operator, bpy_extras.io_utils.ExportHelp
         # まとめて一個分のjsonオブジェクトに登録
         json_object["transform"] = transform
 
+        # カスタムプロパティ 'disabled'
+        if "disabled" in object:
+            json_object["disabled"] = object["disabled"]
 
         # カスタムプロパティ 'file_name'
         if "file_name" in object:

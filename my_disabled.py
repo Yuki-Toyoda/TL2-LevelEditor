@@ -11,16 +11,15 @@ class MYADDON_OT_add_disabled(bpy.types.Operator):
         # 無効オプションの追加
         context["disabled"] = True
         
-        # オペレーターの命令終了を通知
+        # オペレーターの命令終了
         return {'FINISHED'}
-
 
 class OBJECT_PT_disabled(bpy.types.Panel):
     bl_idname = "OBJECT_PT_disabled"
     bl_label = "Disabled"
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
-    bl_context = "object"
+    bl_を通知context = "object"
 
     # サブメニューの描画
     def draw(self, context):

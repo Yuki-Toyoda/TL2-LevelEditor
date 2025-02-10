@@ -43,6 +43,7 @@ class MYADDON_OT_create_ico_sphere(bpy.types.Operator):
         # オペレーターの命令終了を通知
         return {'FINISHED'}
 
+# Sceneエクスポーターをインポート
 from .level_editor import MYADDON_OT_export_scene
 
 # カスタムプロパティ追加オペレータ
@@ -78,6 +79,8 @@ class MYADDON_OT_add_collider(bpy.types.Operator):
 
         return {"FINISHED"}
 
+# 有効、無効トリガーのインポート
+from .my_disabled import MYADDON_OT_add_disabled
 
 class OBJECT_PT_file_name(bpy.types.Panel):
     """オブジェクトのファイルネームパネル"""
@@ -121,38 +124,11 @@ class OBJECT_PT_collider(bpy.types.Panel):
             # プロパティがなければプロパティの追加ボタンを表示
             self.layout.operator(MYADDON_OT_add_collider.bl_idname)
 
+# 有効無効パネル
+from .my_disabled import OBJECT_PT_disabled
 
-# トップバーの拡張メニュー
-class TOPBAR_MT_my_menu(bpy.types.Menu):
-    # Blenderがクラスを識別するための固有の文字列
-    bl_idName = "TOPBAR_MT_my_menu"
-    # メニューのラベルとして表示される文字列
-    bl_label = "MyMenu"
-    # 著者表示用文字列
-    bl_description = "拡張メニュー by " + bl_info["author"]
-
-
-    # サブメニューの描画
-    def draw(self, context):
-        # トップバーのメニューに項目を追加する
-        self.layout.operator("wm.url_open_preset", text="Manual", icon='HELP')
-
-
-        # トップバーのエディターメニューに項目を追加
-        self.layout.operator(MYADDON_OT_stretch_vertex.bl_idname, text=MYADDON_OT_stretch_vertex.bl_label)
-
-
-        # トップバーのエディターメニューに項目を追加
-        self.layout.operator(MYADDON_OT_create_ico_sphere.bl_idname, text=MYADDON_OT_create_ico_sphere.bl_label)
-
-
-        # トップバーのエディターメニューに項目を追加
-        self.layout.operator(MYADDON_OT_export_scene.bl_idname, text=MYADDON_OT_export_scene.bl_label)
-
-    def subMenu(self, context):
-        # ID指定でサブメニューを追加
-        self.layout.menu(TOPBAR_MT_my_menu.bl_idName)
-
+# トップバーの拡張メニューのインポート
+from .my_menu import TOPBAR_MT_my_menu
 
 classes = (
     MYADDON_OT_stretch_vertex,
@@ -163,6 +139,8 @@ classes = (
     OBJECT_PT_file_name,
     MYADDON_OT_add_collider,
     OBJECT_PT_collider,
+    MYADDON_OT_add_disabled,
+    OBJECT_PT_disabled
 )
 
 
