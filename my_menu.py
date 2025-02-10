@@ -2,6 +2,7 @@ import bpy
 
 from .stretch_vertex import MYADDON_OT_stretch_vertex
 from .level_editor import MYADDON_OT_export_scene
+from .my_spawn import MYADDON_OT_add_spawn
 
 # トップバーの拡張メニュー
 class TOPBAR_MT_my_menu(bpy.types.Menu):
@@ -24,6 +25,10 @@ class TOPBAR_MT_my_menu(bpy.types.Menu):
 
         # トップバーのエディターメニューに項目を追加
         self.layout.operator(MYADDON_OT_export_scene.bl_idname, text=MYADDON_OT_export_scene.bl_label)
+
+
+        # トップバーのエディターメニューに項目を追加
+        self.layout.operator(MYADDON_OT_add_spawn.bl_idname, text=MYADDON_OT_add_spawn.bl_label)
 
     def subMenu(self, context):
         # ID指定でサブメニューを追加
