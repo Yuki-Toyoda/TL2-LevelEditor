@@ -1,7 +1,7 @@
 import bpy
 
 class MYADDON_OT_add_disabled(bpy.types.Operator):
-    bl_idname = "myaddon.myaddon_ot_create_object"
+    bl_idname = "myaddon.myaddon_ot_add_disabled"
     bl_label = "無効オプション追加"
     bl_description = "['disabled']有効、無効オプションの追加"
     # redo, undo 可能オプション
@@ -19,7 +19,7 @@ class OBJECT_PT_disabled(bpy.types.Panel):
     bl_label = "Disabled"
     bl_space_type = "PROPERTIES"
     bl_region_type = "WINDOW"
-    bl_を通知context = "object"
+    bl_context = "object"
 
     # サブメニューの描画
     def draw(self, context):

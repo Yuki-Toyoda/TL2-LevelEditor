@@ -82,6 +82,9 @@ class MYADDON_OT_add_collider(bpy.types.Operator):
 # 有効、無効トリガーのインポート
 from .my_disabled import MYADDON_OT_add_disabled
 
+# スポーンシンボルの追加のインポート
+
+
 class OBJECT_PT_file_name(bpy.types.Panel):
     """オブジェクトのファイルネームパネル"""
     bl_idname = "OBJECT_PT_file_name"
